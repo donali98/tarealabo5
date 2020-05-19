@@ -52,10 +52,12 @@ public class MainController {
         ModelAndView mav = new ModelAndView();
         if(result.hasErrors()) {
             mav.setViewName("index");
+            mav.addObject("student", student);
         }
         else {
             studentDAO.save(student);
             mav.setViewName("index");
+            mav.addObject("student", new Estudiante());
         }
         return mav;
     }
