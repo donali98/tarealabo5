@@ -11,7 +11,7 @@
 
 <body>
     <div class="row">
-        <form th:action="@{/saveStudent}" method="post" th:object="${student}" class="col s12">
+        <form th:action="@{/insert}" method="post" th:object="${student}" class="col s12">
             <div class="row">
                 <div class="input-field col 12">
                     <input type="hidden" th:field="*{codStudent}">
@@ -19,24 +19,24 @@
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="name" type="text" class="validate">
+                    <input id="name" type="text" class="validate" th:field="*{name}">
                     <label for="name">Nombre</label>
-                    <span class="helper-text" th:errors="*{name}" style="color: #ff0000;"></span>
+                    <span th:errors="*{name}" style="color: #ff0000;"></span>
                 </div>
                 <div class="input-field col s6">
-                    <input id="lastname" type="text" class="validate">
+                    <input id="lastname" type="text" class="validate" th:field="*{lastName}">
                     <label for="lastname">Apellido</label>
                     <span class="helper-text" th:errors="*{lastName}" data-success="Bien"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="carne" type="text" class="validate">
+                    <input id="carne" type="text" class="validate" th:field="*{carne}">
                     <label for="carne">Carne</label>
                     <span class="helper-text" th:errors="*{carne}" data-success="Bien"></span>
                 </div>
                 <div class="input-field col s6">
-                    <input id="career" type="text" class="validate">
+                    <input id="career" type="text" class="validate" th:field="*{career}">
                     <label for="career">Carrera</label>
                     <span class="helper-text" th:errors="*{career}" data-success="Bien"></span>
                 </div>

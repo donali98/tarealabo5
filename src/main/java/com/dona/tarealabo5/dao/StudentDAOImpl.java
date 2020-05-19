@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import com.dona.tarealabo5.domain.Student;
+import com.dona.tarealabo5.domain.Estudiante;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
@@ -19,19 +19,20 @@ public class StudentDAOImpl implements StudentDAO {
     private EntityManager entityManager;
 
     @Override
-    public List<Student> findAll() throws DataAccessException {
+    public List<Estudiante> findAll() throws DataAccessException {
         StringBuffer sb = new StringBuffer();
         sb.append("select * from public.estudiante");
-        Query query = entityManager.createNativeQuery(sb.toString(), Student.class);
-        List<Student> res = query.getResultList();
+        Query query = entityManager.createNativeQuery(sb.toString(), Estudiante.class);
+        List<Estudiante> res = query.getResultList();
 
         return res;
     }
 
     @Override
     @Transactional
-    public void save(Student e) throws DataAccessException {
+    public void save(Estudiante e) throws DataAccessException {
         entityManager.persist(e);
+
     }
     
 }

@@ -5,15 +5,17 @@ import java.util.List;
 import javax.validation.Valid;
 
 import com.dona.tarealabo5.dao.StudentDAO;
-import com.dona.tarealabo5.domain.Student;
+import com.dona.tarealabo5.domain.Estudiante;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 
 @Controller
 public class MainController {
@@ -23,7 +25,7 @@ public class MainController {
     @GetMapping("/inicio")
     public ModelAndView newStudent() {
         ModelAndView mav = new ModelAndView();
-        mav.addObject("student", new Student());
+        mav.addObject("student", new Estudiante());
         mav.setViewName("index");
         return mav;
     }
@@ -31,7 +33,7 @@ public class MainController {
     @GetMapping("/listado")
     public ModelAndView listStudents() {
         ModelAndView mav = new ModelAndView();
-        List<Student> students = null;
+        List<Estudiante> students = null;
         try {
             students = studentDAO.findAll();
         }
@@ -45,15 +47,14 @@ public class MainController {
 
         return mav;
     }
-    @PostMapping("/insert")
-    public ModelAndView saveStudent(@Valid @ModelAttribute Student student, BindingResult result) {
+    @RequestMapping(value="/insert")    
+    public ModelAndView saveStudent(@Valid @ModelAttribute Estudiante student, BindingResult result) {
         ModelAndView mav = new ModelAndView();
         if(result.hasErrors()) {
             mav.setViewName("index");
         }
         else {
             studentDAO.save(student);
-            mav.addObject("listado");
             mav.setViewName("index");
         }
         return mav;

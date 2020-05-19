@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(schema="public",name="estudiante")
-public class Student {
+public class Estudiante {
     
     @Column(name = "id_estudiante")
     @Id
@@ -39,7 +39,7 @@ public class Student {
     @Column(name = "carrera")
     private String career;
 
-    public Student() {
+    public Estudiante() {
     }
 
     public Integer getCodStudent() {

@@ -18,7 +18,7 @@ public class JPAConfiguration {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
         em.setPersistenceUnitName("tarealabo5");
-        em.setPackagesToScan("com.example.ejemplolabo5.domain");
+        em.setPackagesToScan("com.dona.tarealabo5.domain");
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
