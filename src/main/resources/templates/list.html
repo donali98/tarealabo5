@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Listado</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>Codigo</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Carnet</th>
+            <th>Carrera</th>
+        </thead>
+        <th:block th:each="e, row:${students}">
+            <tr>
+                <th th:text="${e.codStudent}"></th>
+                <th th:text="${e.name}"></th>
+                <th th:text="${e.lastName}"></th>
+                <th th:text="${e.carne}"></th>
+                <th th:text="${e.career}"></th>
+            </tr>
+        </th:block>
+    </table>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Inicio</title>
+</head>
+
+<body>
+    <div class="row">
+        <form th:action="@{/saveStudent}" method="post" th:object="${student}" class="col s12">
+            <div class="row">
+                <div class="input-field col 12">
+                    <input type="hidden" th:field="*{codStudent}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="name" type="text" class="validate">
+                    <label for="name">Nombre</label>
+                    <span class="helper-text" th:errors="*{name}" style="color: #ff0000;"></span>
+                </div>
+                <div class="input-field col s6">
+                    <input id="lastname" type="text" class="validate">
+                    <label for="lastname">Apellido</label>
+                    <span class="helper-text" th:errors="*{lastName}" data-success="Bien"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="carne" type="text" class="validate">
+                    <label for="carne">Carne</label>
+                    <span class="helper-text" th:errors="*{carne}" data-success="Bien"></span>
+                </div>
+                <div class="input-field col s6">
+                    <input id="career" type="text" class="validate">
+                    <label for="career">Carrera</label>
+                    <span class="helper-text" th:errors="*{career}" data-success="Bien"></span>
+                </div>
+            </div>
+
+            <button class="btn cyan waves-effect waves-light left" type="submit" name="action">Enviar </button>
+
+        </form>
+        <a class="btn red waves-effect waves-light right" th:href="@{/listado}" name="action">Listado </a>
+
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</html>
