@@ -48,7 +48,7 @@ public class MainController {
         return mav;
     }
     @RequestMapping(value="/insert")    
-    public ModelAndView saveStudent(@Valid @ModelAttribute Estudiante student, BindingResult result) {
+    public ModelAndView saveStudent(@Valid @ModelAttribute("student") Estudiante student, BindingResult result) {
         ModelAndView mav = new ModelAndView();
         if(result.hasErrors()) {
             mav.setViewName("index");
